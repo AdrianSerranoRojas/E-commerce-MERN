@@ -1,3 +1,5 @@
+// import img1 from ("../img/botella-de-aceite-jpg");
+
 function getSeedUsers() {
   return [
     {
@@ -45,82 +47,43 @@ function getSeedUsers() {
   ];
 }
 
-function getSeedBooks() {
+function getSeedProducts() {
   return [
     {
-      title: "Incubus Sky",
-      author: null,
-      genre: "Fantasy",
-      year: 2010,
-      pages: 220,
-    },
-    {
-      title: "The Twilight Wanderer",
-      author: null,
-      genre: "Fantasy",
-      year: 2012,
-      pages: 300,
-    },
-    {
-      title: "City of Monday",
-      author: null,
-      genre: "Crime",
-      year: 2020,
-      pages: 250,
-    },
-    {
-      title: "The Saturday's Shaman",
-      author: null,
-      genre: "Romance",
-      year: 2015,
-      pages: 280,
-    },
-    {
-      title: "The Underground of the Bane",
-      author: null,
-      genre: "Thriller",
-      year: 2020,
-      pages: 20,
-    },
-    {
-      title: "God in the Roadtrip",
-      author: null,
-      genre: "Fantasy",
-      year: 2018,
-      pages: 320,
-    },
-    {
-      title: "Sunken Haven",
-      author: null,
-      genre: "Comedy",
-      year: 2017,
-      pages: 240,
-    },
-    {
-      title: "The Harrowing Temper",
-      author: null,
-      genre: "Crime",
-      year: 2012,
-      pages: 120,
-    },
-    {
-      title: "Sleep of Hallows",
-      author: null,
-      genre: "Fantasy",
-      year: 2012,
-      pages: 220,
-    },
-    {
-      title: "The Cavern's Fire",
-      author: null,
-      genre: "Crime",
-      year: 2014,
-      pages: 240,
+      id: "65d6b269-209b-50ac-a566-ca6a334aa6f0",
+      title: "Nike Runner 2000",
+      price: 88,
+      img: "img1",
+      shortDescription:
+        "Ipsum sint consequat culpa adipisicing occaecat aliquip aliquip sit labore aute.",
+      longDescription:
+        "Occaecat nostrud ipsum excepteur adipisicing dolor. Deserunt pariatur commodo duis Lorem laboris irure dolor dolor proident aute pariatur. Nostrud consectetur labore anim est deserunt esse est nostrud ipsum velit incididunt aliqua anim. Occaecat exercitation culpa proident aute aliqua exercitation nulla cillum velit nisi reprehenderit Lorem sunt.",
+      isFavorite: false,
+      createdAt: "2021-04-23T09:12:24.2424+02",
+      updatedAt: "2021-04-23T09:12:24.2424+02",
+      unitsInStock: 5,
+      quantity: 0,
+      votes: {
+        upVotes: {
+          upperLimit: 10,
+          currentValue: 0,
+        },
+        downVotes: {
+          lowerLimit: 10,
+          currentValue: 0,
+        },
+      },
+      author: {
+        id: "9cb107d1-cc36-5399-a8b2-0ad65daa5d36",
+        firstName: "Clyde",
+        lastName: "Tucker",
+        email: "mepsukjid@riz.jm",
+      },
     },
   ];
 }
 
 module.exports = {
   getSeedUsers: getSeedUsers,
-  getSeedBooks: getSeedBooks,
+  getSeedProducts: getSeedProducts,
 };
