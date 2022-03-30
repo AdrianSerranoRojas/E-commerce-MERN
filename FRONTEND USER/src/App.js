@@ -9,7 +9,7 @@ import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 // import * as api from "./api";
 
 import { CartItemStateContext } from "./context/CartItemContext";
-// import { ProductsContext } from "./context/ProductsContext";
+import { ProductsContext } from "./context/ProductsContext";
 import { CheckoutsContext } from "./context/CheckoutsContext";
 
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
@@ -21,7 +21,7 @@ const CART_ITEMS_LOCAL_STORAGE_KEY = "react-sc-state-cart-items";
 const CHECKOUTS_LOCAL_STORAGE_KEY = "react-sc-state-checkouts";
 
 function App() {
-  // const { products, setProducts } = useContext(ProductsContext);
+  const { products } = useContext(ProductsContext);
   const { cartItems } = useContext(CartItemStateContext);
   const { checkouts } = useContext(CheckoutsContext);
 
@@ -36,11 +36,11 @@ function App() {
   // const productsList = api.getProducts();
   // console.log(productsList);
   // setProducts(api.getProducts());
-  // console.log(products);
+  console.log(products);
 
   useEffect(async () => {
     // if (products.length === 0) {
-      setIsLoading(true);
+      setIsLoading(false);
       setHasError(false);
       setLoadingError(null);
       // getProductsDb();
@@ -67,7 +67,7 @@ function App() {
     //       setLoadingError(error.message);
     //     });
       }
-  , []);
+  , [products]);
 
   return (
     <BrowserRouter>

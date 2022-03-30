@@ -6,6 +6,10 @@ import ItemCard from "../ItemCard";
 function ProductsListing() {
   const { products } = useContext(ProductsContext);
   console.log(products);
+
+  // useEffect(() => {
+  //   console.log(products);
+  // }, [products])
   return (
     <section className="row">
       {products && products.map((product) => (
