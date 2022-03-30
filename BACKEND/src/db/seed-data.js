@@ -50,7 +50,7 @@ function getSeedUsers() {
 function getSeedProducts() {
   return [
     {
-      id: "65d6b269-209b-50ac-a566-ca6a334aa6f0",
+      _id: "65d6b269-209b-50ac-a566-ca6a334aa6f0",
       title: "Nike Runner 2000",
       price: 88,
       img: "img1",

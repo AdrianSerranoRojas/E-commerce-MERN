@@ -14,8 +14,8 @@ function ProductsListing() {
     <section className="row">
       {products && products.map((product) => (
         <ItemCard
-          key={product.id}
-          id={product.id}
+          key={product._id}
+          id={product._id}
           img={product.img}
           title={product.title}
           shortDescription={product.shortDescription}

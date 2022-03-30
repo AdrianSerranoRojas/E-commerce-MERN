@@ -5,7 +5,7 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import Home from "./pages/Home";
 import NewProduct from "./pages/NewProduct";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
-
+import Login from "./pages/Login/Login";
 // import * as api from "./api";
 
 import { CartItemStateContext } from "./context/CartItemContext";
@@ -15,6 +15,7 @@ import { CheckoutsContext } from "./context/CheckoutsContext";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import BillingAddressForm from "./components/BillingAddressForm";
 import PaymentDetailsForm from "./components/PaymentDetailsForm";
+import { auth } from "./firebase/firebase";
 
 // const PRODUCTS_LOCAL_STORAGE_KEY = "react-sc-state-products";
 const CART_ITEMS_LOCAL_STORAGE_KEY = "react-sc-state-cart-items";
@@ -32,6 +33,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [loadingError, setLoadingError] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
   // const productsList = api.getProducts();
   // console.log(productsList);
@@ -43,6 +45,22 @@ function App() {
       setIsLoading(false);
       setHasError(false);
       setLoadingError(null);
+
+      let unsubscribeFromAuth = null;
+
+    unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setCurrentUser(user);
+      } else {
+        setCurrentUser(null);
+      }
+    });
+
+    return () => {
+      if (unsubscribeFromAuth) {
+        unsubscribeFromAuth();
+      }
+    };
       // getProductsDb();
 
       // try{
@@ -67,13 +85,16 @@ function App() {
     //       setLoadingError(error.message);
     //     });
       }
-  , [products]);
+  , [products, currentUser]);
 
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/new-product">
           <NewProduct />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path="/" exact>
           <Home
