@@ -1,15 +1,22 @@
-import products from "../utils/demo-data";
+// import axios from "axios";
+// import { useContext } from "react";
+// import { ProductsContext } from "../context/ProductsContext";
 
-function getProducts(fail = false) {
-  return new Promise((res, rej) => {
-    setTimeout(() => {
-      if (fail) {
-        rej(new Error("Failed to fetch"));
-      }
+export async function getProducts() {
+  const products = await fetch("http://localhost:4000/products").then(response => response.json()).then(result => result.data)
+  console.log(products);
 
-      res(products);
-    }, 1000);
-  });
-}
-
-export { getProducts };
+  return products;
+  // const { products, setProducts } = useContext(ProductsContext)
+  // console.log("carapolla");
+  // await axios({
+  //   method: "GET",
+  //   url: "http://localhost:4000/products",
+  // }).then((response) => {
+  //   setProducts((response.data.data));
+  //   console.log(products);
+  //   return (response.data.data)
+  // }).catch((error) => {
+  //   console.log(error);
+  // })
+};

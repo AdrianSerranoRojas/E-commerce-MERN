@@ -6,26 +6,26 @@ import Home from "./pages/Home";
 import NewProduct from "./pages/NewProduct";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 
-import * as api from "./api";
+// import * as api from "./api";
 
 import { CartItemStateContext } from "./context/CartItemContext";
-import { ProductsContext } from "./context/ProductsContext";
+// import { ProductsContext } from "./context/ProductsContext";
 import { CheckoutsContext } from "./context/CheckoutsContext";
 
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import BillingAddressForm from "./components/BillingAddressForm";
 import PaymentDetailsForm from "./components/PaymentDetailsForm";
 
-const PRODUCTS_LOCAL_STORAGE_KEY = "react-sc-state-products";
+// const PRODUCTS_LOCAL_STORAGE_KEY = "react-sc-state-products";
 const CART_ITEMS_LOCAL_STORAGE_KEY = "react-sc-state-cart-items";
 const CHECKOUTS_LOCAL_STORAGE_KEY = "react-sc-state-checkouts";
 
 function App() {
-  const { products, setProducts } = useContext(ProductsContext);
+  // const { products, setProducts } = useContext(ProductsContext);
   const { cartItems } = useContext(CartItemStateContext);
   const { checkouts } = useContext(CheckoutsContext);
 
-  useLocalStorage(products, PRODUCTS_LOCAL_STORAGE_KEY);
+  // useLocalStorage(products, PRODUCTS_LOCAL_STORAGE_KEY);
   useLocalStorage(cartItems, CART_ITEMS_LOCAL_STORAGE_KEY);
   useLocalStorage(checkouts, CHECKOUTS_LOCAL_STORAGE_KEY);
 
@@ -33,23 +33,41 @@ function App() {
   const [hasError, setHasError] = useState(false);
   const [loadingError, setLoadingError] = useState(null);
 
-  useEffect(() => {
-    if (products.length === 0) {
-      setIsLoading(true);
+  // const productsList = api.getProducts();
+  // console.log(productsList);
+  // setProducts(api.getProducts());
+  // console.log(products);
 
-      api
-        .getProducts()
-        .then((data) => {
-          setProducts(data);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          setIsLoading(false);
-          setHasError(true);
-          setLoadingError(error.message);
-        });
-    }
-  }, []);
+  useEffect(async () => {
+    // if (products.length === 0) {
+      setIsLoading(true);
+      setHasError(false);
+      setLoadingError(null);
+      // getProductsDb();
+
+      // try{
+      //   console.log(api.getProducts());
+      //   setProducts(api.getProducts().data.data);
+      // }catch(error){
+      //   setIsLoading(false);
+      //   setHasError(true);
+      //   setLoadingError(error.message);
+      // }
+
+    //   api
+    //     .getProducts()
+    //     .then((data) => {
+    //       setProducts(data.data);
+    //       console.log(products);
+    //       setIsLoading(false);
+    //     })
+    //     .catch((error) => {
+    //       setIsLoading(false);
+    //       setHasError(true);
+    //       setLoadingError(error.message);
+    //     });
+      }
+  , []);
 
   return (
     <BrowserRouter>

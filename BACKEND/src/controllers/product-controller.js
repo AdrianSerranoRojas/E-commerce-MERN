@@ -24,7 +24,6 @@ async function createProduct(req, res, next) {
 async function getProducts(req, res, next) {
   try {
     const products = await db.Product.find({})
-      .select({ title: 1 })
       .lean()
       .exec();
 

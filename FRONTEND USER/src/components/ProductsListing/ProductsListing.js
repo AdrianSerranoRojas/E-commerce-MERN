@@ -5,9 +5,10 @@ import ItemCard from "../ItemCard";
 
 function ProductsListing() {
   const { products } = useContext(ProductsContext);
+  console.log(products);
   return (
     <section className="row">
-      {products.map((product) => (
+      {products && products.map((product) => (
         <ItemCard
           key={product.id}
           id={product.id}

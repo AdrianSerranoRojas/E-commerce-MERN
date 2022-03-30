@@ -19,7 +19,6 @@ function App() {
     unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
       if (user) {
         setCurrentUser(user);
-        console.log(user)
       } else {
         setCurrentUser(null);
       }

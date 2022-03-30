@@ -5,7 +5,7 @@ const productController = require("../controllers/product-controller");
 
 const ProductRouter = Router();
 
-UserRouter.use("/admin", authMiddleware);
+ProductRouter.use("/admin", authMiddleware);
 
 ProductRouter.get("/products", productController.getProducts);
 ProductRouter.get("/products/:productId", productController.getSingleProduct);

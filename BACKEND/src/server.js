@@ -5,7 +5,7 @@ const { json } = require("body-parser");
 const cors = require("cors");
 
 const userRouter = require("./routes/user-routes");
-// const productsRouter = require("./routes/products-routes");
+const productRouter = require("./routes/product-routes");
 const config = require("./config/config");
 
 const app = express();
@@ -17,6 +17,6 @@ app.use(json());
 app.use(cors());
 
 app.use(userRouter);
-// app.use(productsRouter);
+app.use(productRouter);
 
 module.exports = app;
