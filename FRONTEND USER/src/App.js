@@ -11,6 +11,7 @@ import Login from "./pages/Login/Login";
 import { CartItemStateContext } from "./context/CartItemContext";
 import { ProductsContext } from "./context/ProductsContext";
 import { CheckoutsContext } from "./context/CheckoutsContext";
+import AuthContext from "./context/AuthContext";
 
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import BillingAddressForm from "./components/BillingAddressForm";
@@ -89,6 +90,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <AuthContext.Provider value={currentUser}>
       <Switch>
         <Route path="/new-product">
           <NewProduct />
@@ -120,6 +122,7 @@ function App() {
           </CheckoutPage>
         </Route>
       </Switch>
+      </AuthContext.Provider>
     </BrowserRouter>
   );
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
+import Button from "../../components/Button/Button"
 import Header from "../../components/Header/Header";
 import AuthContext from "../../context/AuthContext";
 import { getCurrentUserToken } from "../../firebase/firebase";
@@ -44,7 +45,7 @@ function Home() {
       setLoading(true);
 
       try {
-        const res = await axios.get("http://localhost:4000/users", {
+        const res = await axios.get("http://localhost:4000/products", {
           headers: {
             Authorization: `Bearer ${userToken}`,
           },
@@ -57,11 +58,28 @@ function Home() {
         setLoading(false);
       }
     }
-
     if (userToken && !users) {
       getUsers(userToken, setUsers, setLoading, setError);
     }
   }, [users, userToken]);
+
+  async function handleDelete(id){
+    setLoading(true);
+    try {
+      const res = await axios.delete(`http://localhost:4000/admin/products/${id}`, {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      });
+
+      setUsers(res.data.data);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+
+  }
 
   return (
     <>
@@ -98,8 +116,9 @@ function Home() {
                 <div className="col" key={user._id}>
                   <div className="col px-2 py-3 border" key={user._id}>
                     <p className="h5 m-0">
-                      {user.firstName} {user.lastName}
+                      {user.title}
                     </p>
+                    <Button onClick={() => handleDelete(user._id)}>borrar</Button>
                   </div>
                 </div>
               ))}

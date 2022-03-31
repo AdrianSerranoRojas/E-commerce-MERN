@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import Button from "../../components/Button/Button";
 import AuthContext from "../../context/AuthContext";
@@ -18,6 +19,8 @@ function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [loginError, setLoginError] = useState(null);
+
+  const history = useHistory();
 
   const currentUser = useContext(AuthContext);
 
@@ -38,11 +41,11 @@ function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
     setLoading(true);
 
     try {
       await singInWithEmailAndPassword(email, password);
+      history.push("/");
     } catch (error) {
       setLoginError(error.message);
     } finally {

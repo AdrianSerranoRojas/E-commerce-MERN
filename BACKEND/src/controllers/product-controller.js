@@ -88,13 +88,14 @@ async function updateProduct(req, res, next) {
 
 async function deleteProduct(req, res, next) {
   const { productId } = req.params;
+  console.log(productId);
 
   try {
-    const product = await db.Product.findOneAndDelete({ _id: productId });
+    await db.Product.findOneAndDelete({ _id: productId });
 
-    res.status(200).send({
-      data: { _id: product._id },
-    });
+    // res.status(200).send({
+    //   data: { _id: product._id },
+    // });
   } catch (error) {
     next(error);
   }
