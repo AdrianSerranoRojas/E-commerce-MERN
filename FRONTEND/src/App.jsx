@@ -6,6 +6,7 @@ import Profile from "./pages/Profile/Profile";
 import SignUp from "./pages/SignUp/SignUp";
 import Login from "./pages/Login/Login";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
+import NewProduct from "./pages/NewProduct"
 
 import AuthContext from "./context/AuthContext";
 import { auth } from "./firebase/firebase";
@@ -45,6 +46,9 @@ function App() {
         </Route>
         <Route path="/reset-password">
           <ResetPassword />
+        </Route>
+         <Route path="/new-product">
+          <NewProduct />
         </Route>
         <Route path="/">
           <Home />

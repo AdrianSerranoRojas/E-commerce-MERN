@@ -50,7 +50,6 @@ function Home() {
             Authorization: `Bearer ${userToken}`,
           },
         });
-
         setUsers(res.data.data);
       } catch (error) {
         setError(error);
@@ -78,7 +77,6 @@ function Home() {
     } finally {
       setLoading(false);
     }
-
   }
 
   return (

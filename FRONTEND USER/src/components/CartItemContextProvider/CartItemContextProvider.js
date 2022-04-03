@@ -21,7 +21,7 @@ export function cartItemReducer(state, action) {
     }
 
     return {
-      id: cartItem.id,
+      id: cartItem._id,
       title: cartItem.title,
       img: cartItem.img,
       price: cartItem.price,
@@ -63,9 +63,12 @@ export function cartItemReducer(state, action) {
     case "handleAddToCart": {
       const { cartItems } = state;
       const { products, productId } = action.payload;
+      console.log("hola", cartItems);
+      console.log("products", products);
+      console.log("id", productId);
 
       const prevCartItem = cartItems.find((item) => item.id === productId);
-      const foundProduct = products.find((item) => item.id === productId);
+      const foundProduct = products.find((item) => item._id === productId);
       if (prevCartItem) {
         const updatedCartItems = cartItems.map((item) => {
           if (item.id !== productId) {

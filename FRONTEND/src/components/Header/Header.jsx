@@ -20,6 +20,16 @@ function Header() {
             <Link className="navbar-brand" to="/">
               Home
             </Link>
+                        <ul className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  to="/new-product"
+                >
+                  New Product
+                </Link>
+              </li>
+            </ul>
             <div className="collapse navbar-collapse">
               <ul className="navbar-nav w-100">
                 {currentUser ? (

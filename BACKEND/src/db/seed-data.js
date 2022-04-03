@@ -50,10 +50,10 @@ function getSeedUsers() {
 function getSeedProducts() {
   return [
     {
-      id: "65d6b269-209b-50ac-a566-ca6a334aa6f0",
       title: "Nike Runner 2000",
       price: 88,
-      img: "https://res.cloudinary.com/dacibwste/image/upload/v1648719203/cld-sample.jpg",
+      img:
+        "https://res.cloudinary.com/dacibwste/image/upload/v1648719203/cld-sample.jpg",
       shortDescription:
         "Ipsum sint consequat culpa adipisicing occaecat aliquip aliquip sit labore aute.",
       longDescription:

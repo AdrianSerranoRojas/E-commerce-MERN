@@ -1,33 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { ProductsContext } from "../../context/ProductsContext";
 
-import * as api from "../../api"
+import * as api from "../../api";
 
 // import loadLocalStorageItems from "../../utils/loadLocalStorageItems";
 
 // const PRODUCTS_LOCAL_STORAGE_KEY = "react-sc-state-products";
 
 export const ProductsProvider = ({ children }) => {
+  console.log("productProvider");
   // const productList = api.getProducts();
   // console.log(productList);
   const [products, setProducts] = useState();
   // setProducts(productList);
   // console.log("lo qqms");
   // loadLocalStorageItems(PRODUCTS_LOCAL_STORAGE_KEY, []),
-  console.log(products);
-  
-  async function getProductsDb(){
+
+
+  async function getProductsDb() {
     let prod = [];
-    await api.getProducts().then((data) =>
-  {
-    prod = data;
-    setProducts(prod);
-  })
-  return prod;
-  };
+    await api.getProducts().then((data) => {
+      prod = data;
+      setProducts(prod);
+    });
+    return prod;
+  }
 
   useEffect(() => {
-    getProductsDb()
+    getProductsDb();
+    console.log("getProductsDB")
   }, []);
 
   function handleDownVote(productId) {

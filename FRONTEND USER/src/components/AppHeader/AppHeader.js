@@ -27,7 +27,7 @@ function AppHeader({ ...props }) {
               Home
             </NavLink>
 
-            <ul className="navbar-nav mr-auto">
+            {/* <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                 <NavLink
                   exact
@@ -38,7 +38,7 @@ function AppHeader({ ...props }) {
                   New Product
                 </NavLink>
               </li>
-            </ul>
+            </ul> */}
             <ul className="navbar-nav w-100">
                 {currentUser ? (
                   <>

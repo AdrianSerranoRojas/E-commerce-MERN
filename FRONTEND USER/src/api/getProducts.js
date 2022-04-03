@@ -3,9 +3,9 @@
 // import { ProductsContext } from "../context/ProductsContext";
 
 export async function getProducts() {
-  const products = await fetch("http://localhost:4000/products").then(response => response.json()).then(result => result.data)
-  console.log(products);
-
+  const products = await fetch("http://localhost:4000/products")
+    .then((response) => response.json())
+    .then((result) => result.data);
   return products;
   // const { products, setProducts } = useContext(ProductsContext)
   // console.log("carapolla");
@@ -19,4 +19,4 @@ export async function getProducts() {
   // }).catch((error) => {
   //   console.log(error);
   // })
-};
+}

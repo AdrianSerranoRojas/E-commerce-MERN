@@ -46,7 +46,6 @@ export function getCurrentUserToken() {
   if (!auth.currentUser) {
     return null;
   }
-  console.log(auth.currentUser.getIdToken());
   return auth.currentUser.getIdToken();
 }
 

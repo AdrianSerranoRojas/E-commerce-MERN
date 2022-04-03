@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
 
 const ProductSchema = new mongoose.Schema({
-  _id: {
-    type: String,
-  },
   title: {
     type: String,
     required: true,
@@ -41,44 +38,31 @@ const ProductSchema = new mongoose.Schema({
     upVotes: {
       upperLimit: {
         type: Number,
-        required: true,
       },
       currentValue: {
         type: Number,
-        required: true,
-      }
+      },
     },
     downVotes: {
       lowerLimit: {
         type: Number,
-        required: true,
       },
       currentValue: {
         type: Number,
-        required: true,
-        }
       },
     },
-    author: {
-      id: {
-        type: String,
-        required: true
-      },
-      firstName: {
-        type: String,
-        required: true
-      },
-      lastName: {
-        type: String,
-        required: true
-      },
-      email: {
-        type: String,
-        required: true
-      },
+  },
+  author: {
+    email: {
+      type: String,
+      required: true,
     },
-  }
-);
+    id: {
+      type: String,
+      required: true,
+    },
+  },
+});
 
 const ProductModel = new mongoose.model("products", ProductSchema);
 
